@@ -80,6 +80,7 @@ return
 
 BackToStartup:
 Gui, AutoclickerGui:Show, Hide,
+StartupGui()
 return
 
 ; Functions
