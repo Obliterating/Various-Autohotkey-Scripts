@@ -1,4 +1,4 @@
-﻿#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
+#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
 #Warn  ; Enable warnings to assist with detecting common errors.
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
@@ -17,7 +17,7 @@ Autoclicker_Loop := True
 Autoclicker_sleepmilliseconds := 500
 autoclickergui_randomminimum := 1000
 autoclickergui_randommaximum := 5000
-autoclickergui_setdelay := 5000
+autoclickergui_setdelay := 5000	
 autoclickergui_random := FALSE
 StartupGUIDDL := "Pick a script"
 
@@ -28,11 +28,11 @@ StartupGUIDDL := "Pick a script"
 ; Gui Layout
 ;--------------------------------------------------------------------------------
 ;--------------------------------------------------------------------------------
-Gui, StartupGui:New,, StartupScript - Also remember that Ctrl + Escape closes the script 
+Gui, StartupGui:New,, Hub | [Ctrl] + [Esc] to close
 Gui, Show, Center w500 h500	
-Gui, Add, Text,, Select the script in the DDL. Activate it with Ctrl + Shift + 1, and pause it with Ctrl + Shift + 2. `n`nTo get the settings for the script, press the SETTINGS button.
-Gui, Add, DDL, vStartupGUIDDL gStartupGUIDDLSubmitted x84 y133, Pick a script||Autoclicker Script|Option2
-Gui, Add, Button, x232 y132 w75 gButtonSETTINGS, SETTINGS
+Gui, Add, Text, x261 y160, Select the script in the DDL. Activate it with `nCtrl -, and pause it with Ctrl =. `n`nTo get the settings for the script, `npress the SETTINGS button.
+Gui, Add, DDL, vStartupGUIDDL gStartupGUIDDLSubmitted x23 y183, Pick a script||Autoclicker Script|Option2
+Gui, Add, Button, x172 y183 w75 gButtonSETTINGS, SETTINGS
 Return
 
 
@@ -89,11 +89,11 @@ return
 
 StartupGui()
 {
-	Gui, StartupGui:New,, StartupScript - Also remember that Ctrl + Escape closes the script 
+	Gui, StartupGui:New,, Hub | [Ctrl] + [Esc] to close
 	Gui, Show, Center w500 h500	
-	Gui, Add, Text,, Select the script in the DDL. Activate it with Ctrl + Shift + 1, and pause it with Ctrl + Shift + 2. `n`nTo get the settings for the script, press the SETTINGS button.
-	Gui, Add, DDL, vStartupGUIDDL gStartupGUIDDLSubmitted x84 y133, Pick a script||Autoclicker Script|Option2
-	Gui, Add, Button, x232 y132 w75 gButtonSETTINGS, SETTINGS
+	Gui, Add, Text, x261 y160, Select the script in the DDL. Activate it with `nCtrl -, and pause it with Ctrl =. `n`nTo get the settings for the script, `npress the SETTINGS button.
+	Gui, Add, DDL, vStartupGUIDDL gStartupGUIDDLSubmitted x23 y183, Pick a script||Autoclicker Script|Option2
+	Gui, Add, Button, x172 y183 w75 gButtonSETTINGS, SETTINGS
 	Return
 }
 
@@ -164,7 +164,7 @@ determineautoclickersleeptime()
 
 
 
-^+1::
+^-::
 if StartupGUIDDL = Pick a script
 {
 	Msgbox, Please pick a script first
@@ -195,7 +195,7 @@ Return
 
 
 
-^+2::
+^=::
 if StartupGUIDDL = Pick a script
 {
 	Msgbox, Please pick a script first
